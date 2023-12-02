@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Sample styled page</title>
+  <script src="video-js/video.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="video-js/video-js.css" type="text/css" media="screen" title="Video JS" charset="utf-8">
+ </head>
+ <body>
+  <h1>Sample styled page</h1>
+  <p>This page is just a demo.</p>
+  <video id="current_video" class="video-js" width="400" height="300" controls="controls" preload="auto">
+    <source src="https://www.youtube.com/watch?v=ESSwjXXXgAE" type='video/webm; codecs="vp8, vorbis"' />
+  </video>
+  <script>
+    //VideoJS.setupAllWhenReady();
+    VideoJS.DOMReady(function() {
+        var myPlayer = VideoJS.setup("current_video");
+        myPlayer.play();
+        myPlayer.currentTime(200);
+    });
+
+  </script>
+ </body>
+</html>
