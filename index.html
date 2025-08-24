@@ -12,32 +12,35 @@
         <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
         <link href="css/styles.css" rel="stylesheet">
+        <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+        <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
     </head>
-    <body>
 
+
+    <body>
+        <h1>Bratislava bicyklovanie projekt</h1>
         <!--makes the containers - splits the screen -->
         <div class="uk-container">
-            <h1>Albero--Dunaj</h1>
             <div class="uk-grid uk-margin-large-top">
                 <div id="svgcontainer">
-                    
                     <div id="svganchor"></div>
                     <br>
                 </div>
                 <div>
-                    
                     <div id="player">
-
+                        <video id="current_video" class="video-js" autoplay="true" preload="auto" muted="true" width="400" height="300">
+                        <source src="bike1.mp4" type='video/webm; codecs="vp8, vorbis"' />
+                        </video>
                     </div>
                 </div>
-
-               
-
             </div>
-
         </div>
 
-
+        <script>
+            var myPlayer = videojs("current_video", {});
+            // for CHanging Time
+            myPlayer.currentTime(3);
+        </script>
         <script type = 'text/javascript'>
             //Width and height
             let w = 500;
@@ -90,15 +93,15 @@
                 .attr("fill", '#053b87')
                 .attr("fill-opacity", 0.1)
                 .on("click", function(d){
-                    player.seekTo(d.video, true);})
-                .on("mouseover", () => {
-                    return tooltip.style("visibility", "visible");
-                })
-                .on("mousemove", (d) => {
-                    tooltip.text('Time: ' + d.time);
-                    return tooltip.style("top",
-                        (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
-                })
+                    myPlayer.currentTime(d.video);})
+                // .on("mouseover", () => {
+                //     return tooltip.style("visibility", "visible");
+                // })
+                // .on("mousemove", (d) => {
+                //     tooltip.text('Time: ' + d.video);
+                //     return tooltip.style("top",
+                //         (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
+                // })
 
             });
 
@@ -120,7 +123,7 @@
             }, 3000);
         </script>
 
-        <script>
+        <!-- <script>
             // 2. This code loads the IFrame Player API code asynchronously.
             var tag = document.createElement('script');
 
@@ -135,7 +138,7 @@
             player = new YT.Player('player', {
                 height: '360',
                 width: '480',
-                videoId: 'ESSwjXXXgAE', //this is the video src
+                videoId: 'l-FDDu7Qonc', //this is the video src
                 playerVars: {
                 'playsinline': 1
                 },
@@ -163,7 +166,7 @@
             function stopVideo() {
             player.stopVideo();
             }
-        </script>
+        </script> -->
 
         
 
