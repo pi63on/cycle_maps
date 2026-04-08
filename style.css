@@ -1,0 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+#map { 
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+#svganchor {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  top:0; left: 0; 
+  pointer-events: auto;
+}
+#chart svg {width: 100%; height: 100%;}
+ /*
+Source - https://stackoverflow.com/a/62633342
+Posted by nikoshr, modified by community. See post 'Timeline' for change history
+Retrieved 2026-04-04, License - CC BY-SA 4.0
+*/
+
+#svgcontainer {width: 800px; height: 800px; position: relative;}
